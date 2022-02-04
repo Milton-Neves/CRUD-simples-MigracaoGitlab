@@ -1,0 +1,13 @@
+table {
+    width: 100%;
+}
+
+table thead {
+    background-color: #254511;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+table td {
+    border: 1px solid;
+}
