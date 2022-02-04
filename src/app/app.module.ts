@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -13,13 +14,15 @@ import { UsersComponent } from './users/users.component';
     AppComponent,
     Pagina01Component,
     Pagina02Component,
-    UsersComponent,
-    
+    UsersComponent    
   ],
+
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
