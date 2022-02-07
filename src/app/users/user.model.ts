@@ -34,4 +34,21 @@ export interface ResponseCreate {
     createdAt: Date;
 }
 
+// Modelos get User
 
+export interface ResponseUser {
+    data: User
+}
+
+// Modelos para Update
+
+export interface RequestUpdate {
+    name: string;
+    job: string;
+}
+
+export interface ResponseUpdate {
+    name: string;
+    job: string;
+    updatedAt: Date;
+}
