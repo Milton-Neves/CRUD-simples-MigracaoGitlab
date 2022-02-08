@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 })
 export class UpdateComponent implements OnInit {
 
-  id!: string | null;
+  id!: string;
   request: RequestUpdate = {
     name: '',
     job: ''
@@ -19,13 +19,19 @@ export class UpdateComponent implements OnInit {
   constructor(private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get('id')!;
     if (this.id) {
       this.userService.getUser(this.id).subscribe(res => {
         this.request.name = `${res.data.first_name} ${res.data.last_name}`
+        
       });
     }
     else { alert('ERRO') }
   }
-  update() { console.log(this.request) }
+  update() {
+    this.userService.updateUser(this.id, this.request).subscribe(res => {
+      alert(`Atualizar: ${res.updatedAt}, Nome: ${res.name}, Job: ${res.job}`);
+    });
+  }
+
 }
